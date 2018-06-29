@@ -1,0 +1,4 @@
+.settings/
+.idea/
+model/__pycache__/
+processing/__pycache__/

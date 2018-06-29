@@ -1,23 +1,29 @@
 # Libraries
 import pandas as pd
-from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.pipeline import make_pipeline
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.metrics import accuracy_score
 from sklearn.externals import joblib
+# from processing.PreProcessing import PreProcessing
+from sklearn.base import BaseEstimator, TransformerMixin
+import pickle as pk
 
 
 class PreProcessing(BaseEstimator, TransformerMixin):
     """" This Class is our customized Pre-Process """
+
     def __init__(self):
         pass
 
     def transform(self, df, y=None, **fit_params):
+        print("************************************************* Before Transform ***************************")
+        print(df.columns[df.isna().any()].tolist())
+        print(df.dtypes)
         """ This is our customized transform method will be use for Train, Test and Validation data transform"""
         # print("Check the Corellation")
-        Pclass_Servived = df[['Pclass', 'Survived']].groupby(['Pclass'], as_index=False).mean().sort_values(
-            by='Survived', ascending=False)
+        # Pclass_Servived = df[['Pclass', 'Survived']].groupby(['Pclass'], as_index=False).mean().sort_values(
+        #     by='Survived', ascending=False)
         df = df.drop(['Ticket', 'Cabin'], axis=1)
         # print("Af", df.shape)
         df['Title'] = self.Title.astype(int)
@@ -54,6 +60,9 @@ class PreProcessing(BaseEstimator, TransformerMixin):
         # print(df.columns[df.isna().any()].tolist())
         # print("***************** After Transform **********************")
         # print(df.columns.values)
+        print("************************************************* After Transform ***************************")
+        print(df.columns[df.isna().any()].tolist())
+        print(df.dtypes)
         return df.as_matrix()
         # print(df)
 
@@ -90,7 +99,8 @@ class PreProcessing(BaseEstimator, TransformerMixin):
 def build_n_train_model():
     train_df = pd.read_csv('../data/train.csv')
 
-    X_train, X_test, Y_train, Y_test = train_test_split(train_df, train_df['Survived'], test_size=0.25, random_state=41)
+    X_train, X_test, Y_train, Y_test = train_test_split(train_df, train_df['Survived'], test_size=0.25,
+                                                        random_state=41)
     # print(X_train.columns[X_train.isna().any()].tolist())
     pipe = make_pipeline(PreProcessing(), RandomForestClassifier(n_estimators=100))
     aram_grids = {"randomforestclassifier__n_estimators": [10, 20, 30],
@@ -112,10 +122,10 @@ def build_n_train_model():
 if __name__ == '__main__':
     model = build_n_train_model()
     fileName = '../data/aitechwizard.pkl'
-    pickle = joblib.dump(model, fileName)
+    pickle = pk.dump(model, open(fileName, "wb"))
     test_df = pd.read_csv('../data/test.csv')
     test_df['Survived'] = 0
     # load the Pickle Model from
-    print("Testing ;;;;;;;;;;;;;;;;;;; ")
-    clf = joblib.load(fileName)
+    print("Testing ::::::::::::::::::::: ")
+    clf = pk.load(open(fileName, "rb"))
     clf.predict(test_df)

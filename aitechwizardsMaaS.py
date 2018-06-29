@@ -2,6 +2,7 @@ import flask
 import pandas as pd
 from flask import Flask, request, jsonify
 from sklearn.externals import joblib
+from model.ModelTrainTest import  PreProcessing
 
 MaaSapp = Flask(__name__)
 
@@ -33,6 +34,9 @@ def predictApiCall():
         print("Loading the model...")
         clf = joblib.load(fileName)
         print("Your Model have been loading successfully ... Doing Predication now...")
+        print(test_df.columns[test_df.isna().any()].tolist())
+        test_df.Age=test_df.Age.astype(int)
+
         test_pred = clf.predict(test_df)
         test_pred_series = list(pd.Series(test_pred))
         final_prediciton = pd.DataFrame(list(zip(PassengerName, test_pred_series)))
