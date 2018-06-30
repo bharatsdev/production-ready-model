@@ -2,12 +2,18 @@ import flask
 import pandas as pd
 from flask import Flask, request, jsonify
 from sklearn.externals import joblib
-from model.ModelTrainTest import  PreProcessing
+from model.ModelTrainTest import PreProcessing
 
-MaaSapp = Flask(__name__)
+# Machine Learning As A Service App
+mlaasapp = Flask(__name__)
 
 
-@MaaSapp.route("/api/predict/", methods=['POST'])
+@mlaasapp.route("/")
+def welcome():
+    return (" This is my first Machine Learning Model As A service")
+
+
+@mlaasapp.route("/api/predict/", methods=['POST'])
 def predictApiCall():
     """Predication API Call
     Pandas DataFrame sent as payload in Post Request """
@@ -35,7 +41,7 @@ def predictApiCall():
         clf = joblib.load(fileName)
         print("Your Model have been loading successfully ... Doing Predication now...")
         print(test_df.columns[test_df.isna().any()].tolist())
-        test_df.Age=test_df.Age.astype(int)
+        test_df.Age = test_df.Age.astype(int)
 
         test_pred = clf.predict(test_df)
         test_pred_series = list(pd.Series(test_pred))
@@ -45,7 +51,7 @@ def predictApiCall():
         return (response)
 
 
-@MaaSapp.errorhandler(400)
+@mlaasapp.errorhandler(400)
 def bad_request():
     message = {"status": 400,
                "message": " Bad request" + request.url + " . Kindly check you  input data"}
@@ -55,4 +61,4 @@ def bad_request():
 
 
 if __name__ == '__main__':
-    MaaSapp.run(debug=True)
+    mlaasapp.run(host="0.0.0.0", debug=True, port=80)
