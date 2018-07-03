@@ -27,7 +27,7 @@
   ##### Create requirements.txt file
     Requirements files" are files containing a list of items to be installed using pip install like so
     - pip install -r requirements.txt
-    - pip freeze > requeriments.txt
+    - pip freeze > requirements.txt
   ##### Created Dockerfile
      - docker build .
      - docker run image <IMGAGE>
