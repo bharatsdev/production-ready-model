@@ -1,13 +1,13 @@
 # Machine Learning As A Service
-   - Create a Model
-   - Design a Pipeline
-   - Serialized the model
-   - Create Flask Rest Endpoint
-   - Load Serialized model in  Flask app
-   - pass the JSON object to Flask request
-   - Deploy on AWS  as Service
-
-## Technologies Stack
+This will help us in productionized of the Machine Learning model. 
+Also
+- ML Model Design
+- Pickle of ML model (Serialized)
+- Flask Rest Endpoint
+- Containerized the ML Model with Docker
+- Deploy on AWS Beanstalk
+ 
+## Technology Stack
    - Python 3
    - Scikit-Learn
    - Numpy
@@ -15,23 +15,38 @@
    - Flask
    - AWS
    - Docker
-### Getting Start with the Machine Learning as a service
+## Getting Start with the Machine Learning as a service
   - Creating model
   - Analysis of data
-  - correlation
+  - Correlation
   - missing values
   - Drive Features
-  ##### Design a Pipeline   
-        - sklearn have a good class Pipeline this user for Creating the Pipeline for data pre-processing and joining all the pipe in serial form.
-        from sklearn.pipeline import make_pipeline .
-  ##### Create requirements.txt file
-    Requirements files" are files containing a list of items to be installed using pip install like so
-    - pip install -r requirements.txt
-    - pip freeze > requirements.txt
-  ##### Created Dockerfile
-     - docker build .
-     - docker run image <IMGAGE>
-     - docker build -t ml-as-a-service:latest .
-     - docker run -d -p 5000:5000 ml-as-a-service
-     - docekr ps  : check running images
-     - 
+### Data Preparation & Cleaning
+- Correction
+- Correlation
+- Converting
+- Fixing
+- Classifying  
+### Design a ML Pipeline
+- Pipeline make the chains of several step together.
+
+### Create a Model
+- Use the Scikit-learn model for training Model and fit and train the model. 
+   <!-- - Serialized the model
+   - Create Flask Rest Endpoint
+   - Load Serialized model in Flask app
+   - pass the JSON object to Flask request
+   - Deploy on AWS as Service -->
+##### Design a Pipeline   
+- Scikit learn have a good class Pipeline this user for Creating the Pipeline for data pre-processing and joining all the pipe in serial form.
+- from sklearn.pipeline import make_pipeline .
+##### Create requirements.txt file
+- Requirements files" are files containing a list of items to be installed using pip install like so
+- pip install -r requirements.txt
+- pip freeze > requirements.txt
+##### Created Dockerfile
+- docker build .
+- docker run image <IMGAGE>
+- docker build -t ml-as-a-service:latest .
+- docker run -d -p 5000:5000 ml-as-a-service
+- docekr ps  : check running images
