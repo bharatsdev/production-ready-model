@@ -16,6 +16,7 @@ Also
    - AWS
    - Docker
 ## Getting Start with the Machine Learning as a service
+  - Data Preparation & Cleaning
   - Creating model
   - Analysis of data
   - Correlation
