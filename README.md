@@ -28,24 +28,24 @@ Also
 - Converting
 - Fixing
 - Classifying  
-### Design a ML Pipeline
-- Pipeline make the chains of several step together.
-
 ### Create a Model
 - Use the Scikit-learn model for training Model and fit and train the model. 
    <!-- - Serialized the model
    - Create Flask Rest Endpoint
    - Load Serialized model in Flask app
    - pass the JSON object to Flask request
-   - Deploy on AWS as Service -->
-##### Design a Pipeline   
-- Scikit learn have a good class Pipeline this user for Creating the Pipeline for data pre-processing and joining all the pipe in serial form.
+   - Deploy on AWS as Service --> 
+### Design a ML Pipeline
+- Pipeline make the chains of several step together.
+- Scikit learn have a good class Pipeline this usesfor Creating the Pipeline for data pre-processing and joining all the pipe in serial form. 
 - from sklearn.pipeline import make_pipeline .
-##### Create requirements.txt file
+
+
+### requirements.txt file
 - Requirements files" are files containing a list of items to be installed using pip install like so
 - pip install -r requirements.txt
 - pip freeze > requirements.txt
-##### Created Dockerfile
+### Docker and docaker image 
 - docker build .
 - docker run image <IMGAGE>
 - docker build -t ml-as-a-service:latest .
