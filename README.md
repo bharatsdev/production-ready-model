@@ -45,7 +45,7 @@ Also
 - Requirements files" are files containing a list of items to be installed using pip install like so
 - pip install -r requirements.txt
 - pip freeze > requirements.txt
-### Docker and docaker image 
+### Docker Configuration  
 - docker build .
 - docker run image <IMGAGE>
 - docker build -t ml-as-a-service:latest .
