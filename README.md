@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/everythingisdata/Productionize-Machine-Learning.svg?branch=master)](https://travis-ci.com/everythingisdata/Productionize-Machine-Learning)
 # Productionize Machine Learning Model
 This will help us in productionized of the Machine Learning model. 
 Also
