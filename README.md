@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.com/everythingisdata/Productionize-Machine-Learning.svg?branch=master)](https://travis-ci.com/everythingisdata/Productionize-Machine-Learning)
-# Productionize Machine Learning Model
+# Productionize Machine Learning Project
 This will help us in productionized of the Machine Learning model. 
 Also
 - ML Model Design
