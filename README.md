@@ -51,4 +51,4 @@ Also
 - docker run image <IMGAGE>
 - docker build -t ml-as-a-service:latest .
 - docker run -d -p 5000:5000 ml-as-a-service
-- docekr ps  : check running images
+- docker ps  : check running images
