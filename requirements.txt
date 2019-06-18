@@ -1,5 +1,5 @@
 pandas==0.22.0
-flask=0.12.3
+flask=1.0.3
 numpy==1.12.1
 scikit_learn==0.19.1
 scipy==1.0.0
