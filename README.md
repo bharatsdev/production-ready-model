@@ -1,6 +1,6 @@
 [![Build Status](https://dev.azure.com/bharatmca2010/bharatmca2010/_apis/build/status/everythingisdata.Productionize-Machine-Learning?branchName=master)](https://dev.azure.com/bharatmca2010/bharatmca2010/_build/latest?definitionId=3&branchName=master)
 
-[![Build Status](https://travis-ci.com/everythingisdata/Productionize-Machine-Learning.svg?branch=master)](https://travis-ci.com/everythingisdata/Productionize-Machine-Learning)
+[![Build Status](https://travis-ci.com/everythingisdata/productionize-machine-learning-model.svg?branch=master)](https://travis-ci.com/everythingisdata/productionize-machine-learning-model)
 # Productionize Machine Learning Project
 This will help us in productionized of the Machine Learning model. 
 Also
